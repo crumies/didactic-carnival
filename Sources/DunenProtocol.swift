@@ -4,7 +4,7 @@ enum DunenProtocol {
     // FFE0/FFE1 transport is real. Exact DUNEN parameter command frame may differ by firmware.
     // This is isolated here so the UI, backups and safety flow do not need changing.
     static func readAllParametersFrame() -> Data {
-        return Data([0xAA, 0x55, 0x03, 0x10, 0x00, 0x10 ^ 0x03])
+       return Data([0xAA, 0x55, 0x03, 0x10, 0x00, UInt8(0x10 ^ 0x03)])
     }
 
     static func readParameterFrame(id: Int) -> Data {
